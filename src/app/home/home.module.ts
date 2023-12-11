@@ -8,6 +8,7 @@ import { SharedModule } from '../shared/shared.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ContactListComponent } from './components/contact-list/contact-list.component';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
+import { LoggingModule } from '../logging/logging.module';
 
 @NgModule({
   declarations: [

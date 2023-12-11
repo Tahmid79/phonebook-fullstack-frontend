@@ -14,6 +14,8 @@ export class ContactFormComponent implements OnInit {
   myForm: FormGroup = new FormGroup({
     name: new FormControl('', [Validators.required]),
     phone: new FormControl(''),
+    email: new FormControl('', [Validators.required]),
+    password: new FormControl(''),
   });
 
   ngOnInit(): void { 
@@ -25,9 +27,9 @@ export class ContactFormComponent implements OnInit {
     this.createContact(value);
   }
 
-  createContact(value: {name: string, phone: string}){
-    const {name, phone} = value;
-    const contact: IContact = {name, phone};
+  createContact(value: {name: string, phone: string, email: string, password: string}){
+    const {name, phone, email, password} = value;
+    const contact: IContact = {name, phone, email, password};
     this.homeService.createNewContact(contact).subscribe( result => {
       console.log(result);
     });
