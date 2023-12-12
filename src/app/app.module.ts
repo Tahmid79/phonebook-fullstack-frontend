@@ -7,7 +7,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { LoggingModule } from './logging/logging.module';
 import { SharedModule } from './shared/shared.module';
-import { LoginModule } from './login/login.module';
 import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
@@ -20,8 +19,7 @@ import { CookieService } from 'ngx-cookie-service';
     BrowserAnimationsModule,
     HttpClientModule,
     LoggingModule,
-    SharedModule,
-    LoginModule
+    SharedModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

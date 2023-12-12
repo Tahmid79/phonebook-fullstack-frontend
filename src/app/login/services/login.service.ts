@@ -14,12 +14,14 @@ export class LoginService {
       email, password
     };
     const url = "http://localhost:3000/auth/login";
-    return this.http.post(url, payload);
+    return this.http.post(url, payload, {withCredentials: true});
   }
 
   setTokens(accessToken: string, refreshToken: string){
     this.cookieService.set('accessToken', accessToken);
     this.cookieService.set('refreshToken', refreshToken);
+    // const authBearer = 'Bearer ' + accessToken;
+    // this.cookieService.set('Authorization', authBearer);
   }
 
 }

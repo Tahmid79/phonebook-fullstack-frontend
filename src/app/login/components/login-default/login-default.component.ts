@@ -24,7 +24,7 @@ export class LoginDefaultComponent {
       if('accessToken' in response && 'refreshToken' in response){
         const {accessToken, refreshToken} = response;
         this.loginService.setTokens(accessToken, refreshToken);
-        this.reloadCurrentRoute();
+        this.router.navigate(['home']);
       }
     }, error =>{
       console.log(error);

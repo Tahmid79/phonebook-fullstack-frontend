@@ -16,7 +16,7 @@ export class HomeService {
 
   getAllContacts(){
     const url = "http://localhost:3000/contact";
-    return this.http.get(url);
+    return this.http.get(url, {withCredentials: true});
   }
 
 }

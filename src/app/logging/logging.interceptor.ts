@@ -6,14 +6,24 @@ import {
   HttpInterceptor
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable()
 export class LoggingInterceptor implements HttpInterceptor {
 
-  constructor() {}
+  constructor(private cookieService: CookieService) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     console.log('Running interceptor');
+    const accessToken = this.cookieService.get('accessToken');
+    if(request.withCredentials && accessToken){
+      const authBearer = 'Bearer ' + accessToken;
+     //  request.headers.set('Authorization', authBearer);
+      const authReq = request.clone({
+        headers: request.headers.set('Authorization', authBearer)
+      });
+      return next.handle(authReq);
+    }
     return next.handle(request);
   }
 }
