@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
+import { IUser } from '../components/models/loginModels';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,12 @@ export class LoginService {
       email, password
     };
     const url = "http://localhost:3000/auth/login";
-    return this.http.post(url, payload, {withCredentials: true});
+    return this.http.post(url, payload);
+  }
+
+  signUp(payload: IUser){
+    const url = "http://localhost:3000/auth/signup";
+    return this.http.post(url, payload);
   }
 
   setTokens(accessToken: string, refreshToken: string){

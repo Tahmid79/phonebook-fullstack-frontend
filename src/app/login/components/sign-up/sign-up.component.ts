@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '../../services/login.service';
 import { Router } from '@angular/router';
+import { IUser } from '../models/loginModels';
 
 @Component({
   selector: 'app-sign-up',
@@ -19,25 +20,21 @@ export class SignUpComponent {
   });
 
   async submitForm(){
-    const {email, password} = this.myForm.value;
-    this.loginService.login(email, password).subscribe( (response: any) =>{
+    const {name, phone, email, password} = this.myForm.value;
+    const contact: IUser = {name, phone, email, password};
+
+    this.loginService.signUp(contact).subscribe( (response: any) =>{
       console.log(response);
+      
       if('accessToken' in response && 'refreshToken' in response){
         const {accessToken, refreshToken} = response;
         this.loginService.setTokens(accessToken, refreshToken);
         this.router.navigate(['home']);
       }
+
     }, error =>{
       console.log(error);
     });
-  }
-
-  createUser(value: {name: string, phone: string, email: string, password: string}){
-    const {name, phone, email, password} = value;
-    // const contact: IContact = {name, phone, email, password};
-    // this.homeService.createNewContact(contact).subscribe( result => {
-    //   console.log(result);
-    // });
   }
 
   goToLogin(){
