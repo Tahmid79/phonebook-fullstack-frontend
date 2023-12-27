@@ -4,16 +4,14 @@ import { LoginService } from '../../services/login.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-sign-up',
-  templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.scss']
+  selector: 'app-sign-in',
+  templateUrl: './sign-in.component.html',
+  styleUrls: ['./sign-in.component.scss']
 })
-export class SignUpComponent {
+export class SignInComponent {
   constructor(private loginService: LoginService, private router: Router){}
 
   myForm: FormGroup = new FormGroup({
-    name: new FormControl('', [Validators.required]),
-    phone: new FormControl(''),
     email: new FormControl('', [Validators.required]),
     password: new FormControl(''),
   });
@@ -32,16 +30,14 @@ export class SignUpComponent {
     });
   }
 
-  createUser(value: {name: string, phone: string, email: string, password: string}){
-    const {name, phone, email, password} = value;
-    // const contact: IContact = {name, phone, email, password};
-    // this.homeService.createNewContact(contact).subscribe( result => {
-    //   console.log(result);
-    // });
+  reloadCurrentRoute() {
+    const currentUrl = this.router.url;
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate([currentUrl]);
+    });
   }
 
-  goToLogin(){
-    this.router.navigateByUrl('');
+  goToSignUp(){
+    this.router.navigateByUrl('signUp');
   }
-  
 }

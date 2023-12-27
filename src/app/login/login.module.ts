@@ -8,12 +8,14 @@ import { SharedModule } from '../shared/shared.module';
 import { CookieService } from 'ngx-cookie-service';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { SignInComponent } from './components/sign-in/sign-in.component';
 
 
 @NgModule({
   declarations: [
     LoginDefaultComponent,
-    SignUpComponent
+    SignUpComponent,
+    SignInComponent
   ],
   imports: [
     CommonModule,

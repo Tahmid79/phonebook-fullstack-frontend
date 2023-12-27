@@ -7,8 +7,7 @@ const routes: Routes = [
   { 
     path : '' ,
     loadChildren: ()=> import('./login/login.module').then(m => m.LoginModule),
-    canActivate: [alreadyAuthenticatedGuard],
-    pathMatch: 'full'
+    canActivate: [alreadyAuthenticatedGuard]
   },
   { 
     path : 'home' ,
