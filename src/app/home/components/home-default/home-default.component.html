@@ -1,11 +1,29 @@
 <div>
     <mat-toolbar color="primary">
-        <mat-toolbar-row>
-          <button mat-button [routerLink]="['./']" >New</button>
-          <button mat-button [routerLink]="['./list']" >List</button>
+        <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center">
+          <div>
+            <button mat-button [routerLink]="['./']" >New</button>
+            <button mat-button [routerLink]="['./list']" >List</button>
+          </div>
+          <div class="person-container">
+            <button [matMenuTriggerFor]="menu" mat-icon-button aria-label="Example icon button with a menu icon">
+              <mat-icon>account_circle</mat-icon>
+            </button>
+          </div>
         </mat-toolbar-row>
     </mat-toolbar>
     <div>
       <router-outlet></router-outlet>
     </div>
 </div>
+
+<mat-menu #menu="matMenu">
+  <div class="person-info-menu">
+    <div>
+      <h1>Logged In Person Name</h1>
+    </div>
+    <div>
+      <button mat-raised-button color="primary" (click)="logout()" >Logout</button>
+    </div>
+  </div>
+</mat-menu>

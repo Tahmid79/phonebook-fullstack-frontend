@@ -14,5 +14,9 @@ export class HomeDefaultComponent implements OnInit{
 
   ngOnInit(): void {
   }
+
+  logout(){
+    this.homeService.logout();
+  }
   
 }
