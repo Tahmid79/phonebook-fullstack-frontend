@@ -4,6 +4,20 @@
         <form [formGroup]="myForm">
             <div>
                 <mat-form-field>
+                    <mat-label>Name</mat-label>
+                    <input matInput formControlName="name" >
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field>
+                    <mat-label>Phone</mat-label>
+                    <input matInput formControlName="phone" >
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field>
                     <mat-label>Email</mat-label>
                     <input matInput formControlName="email" >
                 </mat-form-field>
@@ -16,14 +30,8 @@
                 </mat-form-field>
             </div>
         </form>
-        <div class="submit-container">
-            <button mat-raised-button (click)="submitForm()" >Submit</button>
-        </div>
-
-        <mat-divider class="divider"></mat-divider>
-
-        <div class="sign-up-container">
-            <button mat-raised-button (click)="goToSignUp()" >Sign Up</button>
+        <div>
+            <button mat-button (click)="submitForm()" >Submit</button>
         </div>
     </div>
 </div>

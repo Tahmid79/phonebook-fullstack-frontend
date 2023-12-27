@@ -6,17 +6,21 @@ import { LoginDefaultComponent } from './components/login-default/login-default.
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { CookieService } from 'ngx-cookie-service';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
   declarations: [
-    LoginDefaultComponent
+    LoginDefaultComponent,
+    SignUpComponent
   ],
   imports: [
     CommonModule,
     LoginRoutingModule,
     ReactiveFormsModule,
     SharedModule,
+    FlexLayoutModule
   ],
   providers: [CookieService]
 })
