@@ -35,7 +35,8 @@ export class RefreshInterceptor implements HttpInterceptor {
 
               return next.handle(authReq);
             }
-
+            this.resetTokens();
+            
             return throwError(error);
           })
          ) 
