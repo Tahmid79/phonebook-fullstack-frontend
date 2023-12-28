@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
 
 // https://danielk.tech/home/angular-retry-an-http-request#create-http-interceptor
+// https://www.scaler.com/topics/angular/angular-interceptor/
 
 @Injectable()
 export class LoggingInterceptor implements HttpInterceptor {

@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoggingModule } from './logging/logging.module';
 import { SharedModule } from './shared/shared.module';
 import { CookieService } from 'ngx-cookie-service';
+import { RefreshModule } from './refresh/refresh.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CookieService } from 'ngx-cookie-service';
     BrowserAnimationsModule,
     HttpClientModule,
     LoggingModule,
-    SharedModule
+    SharedModule,
+    RefreshModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]
