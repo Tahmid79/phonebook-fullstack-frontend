@@ -27,11 +27,12 @@ export class ContactFormComponent implements OnInit {
     this.createContact(value);
   }
 
-  createContact(value: {name: string, phone: string, email: string, password: string}){
-    const {name, phone, email, password} = value;
-    const contact: IContact = {name, phone, email, password};
+  createContact(value: {name: string, phone: string, email: string}){
+    const {name, phone, email} = value;
+    const contact: IContact = {name, phone, email};
     this.homeService.createNewContact(contact).subscribe( result => {
       console.log(result);
+      this.myForm.reset();
     });
   }
 }

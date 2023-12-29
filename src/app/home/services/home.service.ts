@@ -11,12 +11,12 @@ export class HomeService {
   constructor(private http: HttpClient, private authService: AuthService) { }
 
   createNewContact(contact: IContact){
-    const url = "http://localhost:3000/contact";
-    return this.http.post(url, contact);
+    const url = "http://localhost:3000/phone-entry";
+    return this.http.post(url, contact, { withCredentials: true });
   }
 
   getAllContacts(){
-    const url = "http://localhost:3000/contact";
+    const url = "http://localhost:3000/phone-entry";
     return this.http.get(url, {withCredentials: true});
   }
 
