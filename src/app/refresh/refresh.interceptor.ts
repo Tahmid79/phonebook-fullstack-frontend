@@ -41,6 +41,11 @@ export class RefreshInterceptor implements HttpInterceptor {
           })
          ) 
         }
+        
+        if(error.status === 403){
+          this.resetTokens();
+        }
+
         return throwError(error);
       })
     );
