@@ -9,6 +9,7 @@ import {
 } from '@angular/common/http';
 import { Observable, catchError, map, switchMap, throwError } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class RefreshInterceptor implements HttpInterceptor {
@@ -52,7 +53,7 @@ export class RefreshInterceptor implements HttpInterceptor {
   }
   
   refresh(){
-    const url = "http://localhost:3000/auth/refresh";
+    const url = environment.baseUrl + 'auth/refresh';
     const refreshToken = this.cookieService.get('refreshToken');
     const bearerAuth = 'Bearer ' + refreshToken
     const headers= new HttpHeaders().set('Authorization', bearerAuth);

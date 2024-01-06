@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { IUser } from '../components/models/loginModels';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -14,12 +15,12 @@ export class LoginService {
     const payload = {
       email, password
     };
-    const url = "http://localhost:3000/auth/login";
+    const url = environment.baseUrl + 'auth/login';
     return this.http.post(url, payload);
   }
 
   signUp(payload: IUser){
-    const url = "http://localhost:3000/auth/signup";
+    const url = environment.baseUrl + 'auth/signup';
     return this.http.post(url, payload);
   }
 
