@@ -27,7 +27,7 @@ export class ContactFormComponent implements OnInit {
     this.createContact(value);
   }
 
-  createContact(value: {name: string, phone: string, email: string}){
+  createContact(value: IContact){
     const {name, phone, email} = value;
     const contact: IContact = {name, phone, email};
     this.homeService.createNewContact(contact).subscribe( result => {
